@@ -42,12 +42,12 @@ for the GET you can copy and paste this messages as URL on the browser and it wi
 Otherwise, you cancURL from terminal
 
 ### Health
-> curl **-X GET** http://192.168.43.67:8080/api/v1/**health/check**
+> curl -X GET http://192.168.43.67:8080/api/v1/health/check
 
-> curl **-X GET** http://192.168.43.67:8080/api/v1/**health/status**
+> curl -X GET http://192.168.43.67:8080/api/v1/health/status
 
 ### List Metric Names
-> curl **-X GET** http://192.168.43.67:8080/api/v1/**metricnames**
+> curl -X GET http://192.168.43.67:8080/api/v1/metricnames
 
 
 
@@ -56,13 +56,12 @@ For the POST you will need a client for attaching data to the POST request, wher
 ### Add Data Points
 
 Single point on single metric
-> curl **-X POST** http://192.168.43.67:8080/api/v1/**datapoints** **-d** '[{"name": "new_metric","timestamp":1359786400000,"value":123456,"tags": {"client": "client_1"}}]'
+> curl -X POST http://192.168.43.67:8080/api/v1/datapoints -d '[{"name": "new_metric","timestamp":1359786400000,"value":123456,"tags": {"client": "client_1"}}]'
 
 Multiple points on multiple metrics
-> curl **-X POST** http://192.168.43.67:8080/api/v1/**datapoints** **-d** '[{"name": "archive_file_tracked","datapoints": [[1359788400000, 123], [1359788300000, 13.2], [1359788410000, 23.1]],"tags": {"host": "server1","data_center": "DC1"},"ttl": 300},{"name": "impedance","type": "complex-number","datapoints": [[1359788400000,{"real": 2.3,"imaginary": 3.4}],[1359788300000,{"real": 1.1,"imaginary": 5}]],"tags": {"host": "server1","data_center": "DC1"}},{"name": "archive_file_search","timestamp": 1359786400000,"value": 321,"tags": {"host": "server2"}}]
+> curl -X POST http://192.168.43.67:8080/api/v1/datapoints -d '[{"name": "archive_file_tracked","datapoints": [[1359788400000, 123], [1359788300000, 13.2], [1359788410000, 23.1]],"tags": {"host": "server1","data_center": "DC1"},"ttl": 300},{"name": "impedance","type": "complex-number","datapoints": [[1359788400000,{"real": 2.3,"imaginary": 3.4}],[1359788300000,{"real": 1.1,"imaginary": 5}]],"tags": {"host": "server1","data_center": "DC1"}},{"name": "archive_file_search","timestamp": 1359786400000,"value": 321,"tags": {"host": "server2"}}]
 
 ### Query Metrics
-
- > curl **-X POST** http://192.168.43.67:8080/api/v1/**datapoints/query** **-d** '{"start_absolute": 1357023600000,"end_relative": {"value": "5","unit": "days"},"time_zone": "Asia/Kabul","metrics": [{"tags": {"host": ["foo", "foo2"],"customer": ["bar"]},"name": "abc.123","limit": 10000,"aggregators": [{"name": "sum","sampling": {"value": 10,"unit": "minutes"}}]},{"tags": {"host": ["foo", "foo2"],"customer": ["bar"]},"name": "xyz.123","aggregators": [{"name": "avg","sampling": {"value": 10,"unit": "minutes"}}]}]}'
+ > curl -X POST http://192.168.43.67:8080/api/v1/datapoints/query -d '{"start_absolute": 1357023600000,"end_relative": {"value": "5","unit": "days"},"time_zone": "Asia/Kabul","metrics": [{"tags": {"host": ["foo", "foo2"],"customer": ["bar"]},"name": "abc.123","limit": 10000,"aggregators": [{"name": "sum","sampling": {"value": 10,"unit": "minutes"}}]},{"tags": {"host": ["foo", "foo2"],"customer": ["bar"]},"name": "xyz.123","aggregators": [{"name": "avg","sampling": {"value": 10,"unit": "minutes"}}]}]}'
 
 ## 
