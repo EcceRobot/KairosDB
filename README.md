@@ -35,20 +35,25 @@ The service will start up on **port** 8080 at the server **IP Address**
 
 You can use http GET and POST 
 
-for the GET you can copy and paste this messages as URL on the browser:
+for the GET you can copy and paste this messages as URL on the browser and it will show the responses.
+
+Otherwise, you cancURL from terminal
+
+### Health
+> curl -X GET http://192.168.43.67:8080/api/v1/**health/check**
+
+> curl -X GET http://192.168.43.67:8080/api/v1/**health/status**
+
+### List Metric Names
+> curl -X GET http://192.168.43.67:8080/api/v1/**metricnames**
 
 
-> curl -X GET http://192.168.43.67:8080/api/v1/health/check
 
-> curl -X GET http://192.168.43.67:8080/api/v1/health/status
+For the POST you will need a client for attaching data to the POST request:
 
-List Metric Names
-> curl -X GET http://192.168.43.67:8080/api/v1/metricnames
 
-for the POST you will need a client for attaching data to the POST request:
-You can use cURL from terminal:
-
-> curl -X POST http://192.168.43.67:8080/api/v1/datapoints -d '[{"name": "new_metric","timestamp":1359786400000,"value": 123456,"tags": {"client": "client_1"}}]'
+### Add Data Points
+> curl -X POST http://192.168.43.67:8080/api/v1/**datapoints** -d '[{"name": "new_metric","timestamp":1359786400000,"value":123456,"tags": {"client": "client_1"}}]'
 
 
 
