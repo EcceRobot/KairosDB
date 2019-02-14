@@ -13,7 +13,7 @@ Then install with **dpkg**
 
 You need **Java** 1.8 running also on the system
 ##
-Check if Java is already installed:
+Check if Java is already installed: 
 > java -version
 
 If Java is not currently installed, you'll see the following output:
