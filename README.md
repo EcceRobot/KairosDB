@@ -37,9 +37,9 @@ KairosDB can be configured to use one of several backends for storing data. By d
 
 You can use http GET and POST 
 
-for the GET you can copy and paste this messages as URL on the browser and it will show the responses.
+for the GET you can copy and paste these URL in the browser and it will show the responses.
 
-Otherwise, you cancURL from terminal
+Otherwise, you can use cURL from terminal.
 
 ### Health
 > curl -X GET http://192.168.43.67:8080/api/v1/health/check
